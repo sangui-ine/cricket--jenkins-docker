@@ -26,7 +26,7 @@ public class ProductService {
     	}
 
     public Product getproductById(int id){
-	return repository.getById(id).orElse(null);    }
+	return repository.getById(id);    }
 
    public Product getProductByName(String name) {
 	return repository.findByName(name);
@@ -37,7 +37,7 @@ public class ProductService {
    }
    public Product updateProduct(Product product)
    {
-	   Product existingProduct=repository.findById(product.getId()).orElse(null);
+	   Product existingProduct=repository.findAllById(product.getId());
 	   existingProduct.setName(product.getName());
 	   existingProduct.setRunscored(product.getRunscored());
 	   existingProduct.setPlayerType(product.getPlayerType());
